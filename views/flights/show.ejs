@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flights</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1>Flight Details</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Airline</th>
+          <th>Flight Number</th>
+          <th>Departs</th>
+          <th>Departure Airport</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= flight.airline %></td>
+          <td><%= flight.flightNo %></td>
+          <td><%= flight.departs %></td>
+          <td><%= flight.airport %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Destinations</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Airport</th>
+          <th>Arrival</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% flight.destinations.forEach(function (destination) { %>
+        <tr>
+          <td><%= destination.airport %></td>
+          <td><%= destination.arrival %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <form action="/flights/<%= flight.id %> " method="POST">
+      <label
+        >Airport:
+        <select name="airport" id="airport">
+          <option value="AUS">AUS</option>
+          <option value="DFW">DFW</option>
+          <option value="DEN">DEN</option>
+          <option value="LAX">LAX</option>
+          <option value="SAN">SAN</option>
+        </select> </label
+      ><br />
+      <label
+        >Arrival:
+        <input name="arrival" id="arrival" type="datetime-local" /> </label
+      ><br />
+      <input type="submit" value="Add Destination" />
+    </form>
+
+    <h4><a href="/flights/index">Back to main</a></h4>
+  </body>
+</html>

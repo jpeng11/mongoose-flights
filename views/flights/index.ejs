@@ -24,11 +24,13 @@
           <td><%= flight.airport %></td>
           <td><%= flight.flightNo %></td>
           <td><%= flight.departs %></td>
+          <td><a href="/flights/<%= flight._id %>">Details</a></td>
         </tr>
         <% }) %>
 
         <!-- Close the forEach using EJS here -->
       </tbody>
     </table>
+    <h4><a href="/flights/new">Add New Flight</a></h4>
   </body>
 </html>
