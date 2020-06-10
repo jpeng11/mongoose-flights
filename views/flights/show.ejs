@@ -61,6 +61,30 @@
       <input type="submit" value="Add Destination" />
     </form>
 
+    <h2>Ticket</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Seat</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% ticket.forEach(function (t) { %>
+        <tr>
+          <td><%= t.seat %></td>
+          <td><%= t.price %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <form action="/flights/<%= flight._id %>/ticket " method="POST">
+      <label>Seat: <input type="text" id="seat" name="seat" /> </label><br />
+      <label
+        >Price: <input name="price" id="price" type="number" min="0" /> </label
+      ><br />
+      <input type="submit" value="Add Ticket" />
+    </form>
     <h4><a href="/flights/index">Back to main</a></h4>
   </body>
 </html>
